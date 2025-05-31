@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Engineering Roadmap - Enhanced</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f0f4f8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .sidebar {
+            /* On mobile, it will be part of the flow. On md+, it becomes sticky */
+            @apply w-full md:w-72 bg-slate-800 text-white p-5 space-y-2 shadow-lg md:sticky md:top-0 md:h-screen md:overflow-y-auto;
+        }
+        .sidebar-link {
+            @apply block py-2.5 px-4 rounded-md text-sm text-gray-300 hover:bg-sky-700 hover:text-white transition-colors duration-150;
+        }
+        .sidebar-link.active {
+            @apply bg-sky-600 text-white font-semibold shadow-md;
+        }
+        .main-content-header {
+            @apply text-3xl md:text-4xl font-bold text-sky-700;
+        }
+        .content-section h2 {
+             @apply text-2xl md:text-3xl font-semibold text-sky-600 mb-6 border-b-2 border-sky-200 pb-3;
+        }
+        .content-subsection {
+            @apply mb-6 p-4 bg-white rounded-lg shadow-md border border-slate-200;
+        }
+        .content-subsection h3 {
+            @apply text-lg md:text-xl font-semibold text-slate-700 mb-2;
+        }
+        .content-subsection p, .content-subsection ul {
+            @apply text-slate-600 text-sm md:text-base mb-1;
+        }
+        .content-subsection ul {
+            @apply list-disc list-inside pl-4;
+        }
+        .pill {
+            @apply inline-block bg-sky-100 text-sky-700 text-xs font-semibold mr-2 mb-1 px-2.5 py-0.5 rounded-full;
+        }
+        .scroll-mt-custom {
+             /* Adjust if you have a fixed header for the main content on mobile/desktop */
+            scroll-margin-top: 20px;
+        }
+         /* Main layout flex container */
+        .main-layout {
+            @apply flex flex-col md:flex-row;
+        }
+        .content-wrapper {
+            @apply w-full p-4 md:p-8 overflow-y-auto;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+    <div class="main-layout min-h-screen">
+        <aside id="sidebar" class="sidebar">
+            <h1 class="text-xl md:text-2xl font-bold mb-5 text-center text-sky-400 pt-8 md:pt-0">Roadmap Index</h1>
+            <nav id="sidebarNav">
+                <a href="#overview" class="sidebar-link">0. Overview</a>
+                <a href="#foundation" class="sidebar-link">1. Foundation</a>
+                <a href="#database" class="sidebar-link">2. Database</a>
+                <a href="#software-architecture" class="sidebar-link">3. Software Architecture</a>
+                <a href="#devops" class="sidebar-link">4. DevOps</a>
+                <a href="#system-design" class="sidebar-link">5. System Design</a>
+                <a href="#interview-preparation" class="sidebar-link">6. Interview Preparation</a>
+            </nav>
+            <div class="text-center mt-auto pt-4 text-xs text-slate-400">
+                <p>&copy; 2025 Roadmap</p>
+            </div>
+        </aside>
+
+        <main class="content-wrapper">
+            <header class="mb-8 md:mb-12 text-center pt-4 md:pt-0">
+                <h1 class="main-content-header">Detailed Backend Engineering Roadmap</h1>
+                <p class="text-md md:text-lg text-slate-600 mt-2">
+                    The goal here is not just to "know about" these topics, but to understand them deeply enough to reason about them, make informed decisions, and solve complex problems.
+                </p>
+            </header>
+
+            <section id="overview" class="content-section scroll-mt-custom">
+                <h2>0. Overview</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">A visual summary of the roadmap sections and their relative depth (number of sub-topics).</p>
+                <div class="bg-white p-4 md:p-6 rounded-lg shadow-lg border border-slate-200">
+                    <canvas id="roadmapChart" class="max-h-[400px] w-full"></canvas>
+                </div>
+            </section>
+
+            <section id="foundation" class="content-section scroll-mt-custom">
+                <h2>1. Foundation</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">This is the bedrock. Without a strong foundation, everything else becomes much harder.</p>
+                <div class="content-subsection">
+                    <h3>Programming Languages</h3>
+                    <p><strong>What to learn:</strong> Don't just learn syntax. Choose one or two languages (e.g., <span class="pill">Java</span>, <span class="pill">Python</span>, <span class="pill">C++</span>, <span class="pill">Go</span>, <span class="pill">Rust</span>) and master them. Understand their core philosophies, memory management, standard libraries, built-in data structures, concurrency models, and common idioms.</p>
+                    <p><strong>How much/depth:</strong> Write complex, efficient, and maintainable code. Understand compilation/interpretation, runtime environment, and performance characteristics. E.g., for Java: JVM, garbage collection, Collections Framework.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Data Structures</h3>
+                    <p><strong>What to learn:</strong> Arrays, Linked Lists, Stacks, Queues, Trees (Binary, BST, AVL, Red-Black, Heaps, Tries), Graphs, Hash Tables.</p>
+                    <p><strong>How much/depth:</strong> Understand internal workings, implement from scratch (conceptually), time/space complexity, pros/cons, use cases. Choose efficiently.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Algorithms</h3>
+                    <p><strong>What to learn:</strong> Sorting, Searching, Graph Algorithms (BFS, DFS, Dijkstra's), Dynamic Programming, Greedy, Divide & Conquer, Recursion, Backtracking.</p>
+                    <p><strong>How much/depth:</strong> Understand working, trace execution, analyze complexity (Big O), apply appropriately. Practice implementation.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Object-Oriented Programming (OOP)</h3>
+                    <p><strong>What to learn:</strong> Encapsulation, Abstraction, Inheritance, Polymorphism. Classes, objects, interfaces, abstract classes, constructors, destructors, overriding, overloading.</p>
+                    <p><strong>How much/depth:</strong> Understand theoretical concepts and how they aid in modular, reusable, maintainable software. Apply effectively. Understand coupling/cohesion.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Design Patterns (Foundational)</h3>
+                    <p><strong>What to learn:</strong> Creational (Singleton, Factory), Structural (Adapter, Decorator), Behavioral (Observer, Strategy). GoF patterns are a start.</p>
+                    <p><strong>How much/depth:</strong> Understand problem solved, structure, participants, pros/cons, use cases. Identify applicability and implement. Write well-structured, flexible code.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Networking (Foundational)</h3>
+                    <p><strong>What to learn:</strong> OSI Model, TCP/IP Suite (IP, TCP, UDP, HTTP, HTTPS, DNS). Sockets, ports, client-server model.</p>
+                    <p><strong>How much/depth:</strong> Understand data travel, TCP vs. UDP, HTTP requests/responses, DNS resolution. Explain URL to page load process.</p>
+                </div>
+                 <div class="content-subsection">
+                    <h3>Security (Foundational)</h3>
+                    <p><strong>What to learn:</strong> CIA triad. SQL Injection, XSS, CSRF. Authentication vs. Authorization. Hashing, encryption vs. encoding.</p>
+                    <p><strong>How much/depth:</strong> Understand risks, vulnerabilities. Learn defensive coding. Aware of common threats and mitigation.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Operating System (Foundational)</h3>
+                    <p><strong>What to learn:</strong> Processes, Threads, CPU Scheduling, Memory Management (Virtual Memory, Paging), File Systems, IPC, Deadlocks, Synchronization (Mutexes, Semaphores).</p>
+                    <p><strong>How much/depth:</strong> Understand OS resource management and program interaction. Crucial for efficient, robust, concurrent apps and debugging.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Multi-Threading</h3>
+                    <p><strong>What to learn:</strong> Concurrency vs. Parallelism. Thread creation/management. Synchronization (locks, mutexes). Deadlocks. Thread pools.</p>
+                    <p><strong>How much/depth:</strong> Write correct, efficient concurrent programs. Understand shared mutable state challenges and safe programming patterns.</p>
+                </div>
+            </section>
+
+            <section id="database" class="content-section scroll-mt-custom">
+                <h2>2. Database</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">Databases are the heart of most backend systems.</p>
+                 <div class="content-subsection">
+                    <h3>SQL & NoSQL Databases</h3>
+                    <p><strong>What to learn:</strong></p>
+                    <ul>
+                        <li><strong>SQL:</strong> Relational model, SQL syntax (DDL, DML, DQL, TCL), joins, subqueries, aggregations, views, stored procedures, triggers, transactions.</li>
+                        <li><strong>NoSQL:</strong> Types (Key-Value, Document, Column-Family, Graph), use cases, pros/cons. Examples: <span class="pill">MongoDB</span>, <span class="pill">Redis</span>, <span class="pill">Cassandra</span>.</li>
+                    </ul>
+                    <p><strong>How much/depth:</strong> SQL: proficient in complex queries, understand execution plans. NoSQL: understand data models, when to choose over SQL.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Normalization & Denormalization</h3>
+                    <p><strong>What to learn:</strong> Normalization forms (1NF, 2NF, 3NF, BCNF). Purpose (reduce redundancy, improve integrity). Denormalization for performance.</p>
+                    <p><strong>How much/depth:</strong> Design normalized schemas. Understand trade-offs (write efficiency/integrity vs. read efficiency).</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Indexes</h3>
+                    <p><strong>What to learn:</strong> Types (B-Tree, Hash, Clustered). How they speed up queries. Cost (storage, write overhead).</p>
+                    <p><strong>How much/depth:</strong> Create effective indexes. Analyze query performance for bottlenecks.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>CAP Theorem</h3>
+                    <p><strong>What to learn:</strong> Consistency, Availability, Partition Tolerance. A distributed system can only provide two.</p>
+                    <p><strong>How much/depth:</strong> Understand guarantees and implications for distributed database design.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ACID & BASE Consistency Model</h3>
+                    <p><strong>What to learn:</strong></p>
+                    <ul>
+                        <li><strong>ACID:</strong> Atomicity, Consistency, Isolation, Durability (RDBMS).</li>
+                        <li><strong>BASE:</strong> Basically Available, Soft state, Eventually consistent (NoSQL).</li>
+                    </ul>
+                    <p><strong>How much/depth:</strong> Understand properties and their effect on transactions and data consistency.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>(Distributed) Transactions</h3>
+                    <p><strong>What to learn:</strong> Challenges across nodes/services. Two-Phase Commit (2PC). Sagas for eventual consistency.</p>
+                    <p><strong>How much/depth:</strong> Understand complexities. Knowing concepts helps with distributed system challenges.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Database Replication</h3>
+                    <p><strong>What to learn:</strong> Master-Slave, Master-Master. Synchronous vs. Asynchronous. Purpose: HA, DR, read scaling.</p>
+                    <p><strong>How much/depth:</strong> Understand strategies, pros/cons, impact on consistency/availability.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Data Partitioning / Sharding</h3>
+                    <p><strong>What to learn:</strong> Horizontal (sharding), vertical. Sharding strategies (range, hash, directory).</p>
+                    <p><strong>How much/depth:</strong> Understand why/how to partition for scalability/performance. Challenges (hot spots, cross-shard queries).</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Consistent Hashing</h3>
+                    <p><strong>What to learn:</strong> Technique to minimize data remapping when nodes change in distributed systems.</p>
+                    <p><strong>How much/depth:</strong> Understand algorithm and benefits in dynamic environments.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Database Federation</h3>
+                    <p><strong>What to learn:</strong> Integrating multiple autonomous, heterogeneous databases into one virtual system.</p>
+                    <p><strong>How much/depth:</strong> Advanced concept; good awareness for legacy/diverse data sources.</p>
+                </div>
+            </section>
+
+            <section id="software-architecture" class="content-section scroll-mt-custom">
+                <h2>3. Software Architecture</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">This is about the high-level structure and design decisions for software systems.</p>
+                <div class="content-subsection">
+                    <h3>Design Patterns (Architectural)</h3>
+                    <p><strong>What to learn:</strong> System-level patterns: Layered, Client-Server, Microservices, Event-Driven, Pipe-Filter.</p>
+                    <p><strong>How much/depth:</strong> Understand how they structure systems, trade-offs, application.</p>
+                </div>
+                 <div class="content-subsection">
+                    <h3>Design Principles</h3>
+                    <p><strong>What to learn:</strong> SOLID, DRY, KISS, YAGNI.</p>
+                    <p><strong>How much/depth:</strong> Guiding principles for quality, maintainable, flexible systems. Internalize and apply.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>APIs & Integrations</h3>
+                    <p><strong>What to learn:</strong> RESTful APIs. <span class="pill">GraphQL</span>. <span class="pill">gRPC</span>. API security (<span class="pill">OAuth</span>, <span class="pill">API Keys</span>, <span class="pill">JWT</span>). Message queues (<span class="pill">RabbitMQ</span>, <span class="pill">Kafka</span>).</p>
+                    <p><strong>How much/depth:</strong> Design clear, consistent, secure APIs. Understand sync vs. async communication.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Networks, Security & Cloud (Architectural)</h3>
+                    <p><strong>What to learn:</strong> How networking (VPCs, firewalls, LBs), security (IAM, encryption), and cloud services influence architecture.</p>
+                    <p><strong>How much/depth:</strong> Design secure, resilient systems leveraging cloud capabilities (elasticity, fault tolerance).</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Different Toolings</h3>
+                    <p><strong>What to learn:</strong> Diagramming (<span class="pill">Lucidchart</span>, <span class="pill">draw.io</span>), API design (<span class="pill">Postman</span>, <span class="pill">Swagger/OpenAPI</span>), project management.</p>
+                    <p><strong>How much/depth:</strong> Familiarity with tools aiding architectural design and documentation.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Requirement Elicitation</h3>
+                    <p><strong>What to learn:</strong> Gathering functional/non-functional requirements (performance, scalability) from stakeholders.</p>
+                    <p><strong>How much/depth:</strong> Translate business needs into technical specifications.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Documentation</h3>
+                    <p><strong>What to learn:</strong> Importance of documenting decisions, designs, APIs. Tools/formats for effective documentation.</p>
+                    <p><strong>How much/depth:</strong> Create clear, concise documentation for maintainability and evolution.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Different Diagrams</h3>
+                    <p><strong>What to learn:</strong> UML (Class, Sequence), C4 model, flowcharts, data flow diagrams.</p>
+                    <p><strong>How much/depth:</strong> Create/understand diagrams to communicate architecture effectively.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Design Decisions</h3>
+                    <p><strong>What to learn:</strong> Making choices, evaluating trade-offs, documenting rationale (e.g., ADRs).</p>
+                    <p><strong>How much/depth:</strong> Understand architecture is about choices with pros/cons.</p>
+                </div>
+            </section>
+
+            <section id="devops" class="content-section scroll-mt-custom">
+                <h2>4. DevOps</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">Bridging the gap between development and operations for faster, more reliable software delivery.</p>
+                <div class="content-subsection">
+                    <h3>Linux Operating System</h3>
+                    <p><strong>What to learn:</strong> Core commands, file system, permissions, process management, package management, shell scripting (bash).</p>
+                    <p><strong>How much/depth:</strong> Comfort in Linux environment, managing apps, troubleshooting.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Command Line Interface (CLI)</h3>
+                    <p><strong>What to learn:</strong> Terminal/shell proficiency. Tools like <span class="pill">Git</span>, <span class="pill">Docker</span>, cloud CLIs, text processing (<span class="pill">grep</span>, <span class="pill">awk</span>).</p>
+                    <p><strong>How much/depth:</strong> CLI is powerful for automation/management. Efficiency is key.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Version Control System</h3>
+                    <p><strong>What to learn:</strong> <span class="pill">Git</span> (branching, merging, rebasing, conflicts, PRs). Platforms like <span class="pill">GitHub</span>, <span class="pill">GitLab</span>.</p>
+                    <p><strong>How much/depth:</strong> Deep understanding for collaborative development and code history.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Networking, Security & Protocols (DevOps Context)</h3>
+                    <p><strong>What to learn:</strong> App exposure (ports, firewalls, LBs, reverse proxies like <span class="pill">Nginx</span>). SSL/TLS. Network troubleshooting tools.</p>
+                    <p><strong>How much/depth:</strong> Operational perspective: deploy, secure, manage network traffic.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Cloud Providers</h3>
+                    <p><strong>What to learn:</strong> Core services of <span class="pill">AWS</span>, <span class="pill">Azure</span>, or <span class="pill">GCP</span> (Compute, Storage, Databases, Networking, IAM). Serverless.</p>
+                    <p><strong>How much/depth:</strong> Deploy/manage apps on cloud. Understand basic services and integration.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Containers</h3>
+                    <p><strong>What to learn:</strong> <span class="pill">Docker</span> (Dockerfiles, images, containers, Docker Compose, registries).</p>
+                    <p><strong>How much/depth:</strong> Understand benefits (consistency, portability). Proficient in Docker usage.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Configuration Management</h3>
+                    <p><strong>What to learn:</strong> Tools like <span class="pill">Ansible</span>, <span class="pill">Terraform</span> (IaC). Managing configurations as code.</p>
+                    <p><strong>How much/depth:</strong> Automate provisioning/configuration for consistency. Terraform is popular.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>CI/CD</h3>
+                    <p><strong>What to learn:</strong> Principles. Tools (<span class="pill">Jenkins</span>, <span class="pill">GitLab CI</span>, <span class="pill">GitHub Actions</span>). Automated build, test, deploy pipelines.</p>
+                    <p><strong>How much/depth:</strong> Automate software delivery for faster, reliable releases.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Container Orchestration</h3>
+                    <p><strong>What to learn:</strong> <span class="pill">Kubernetes (K8s)</span> (Pods, Services, Deployments). <span class="pill">Helm</span>.</p>
+                    <p><strong>How much/depth:</strong> Deploy, manage, scale containerized apps with K8s. Complex but valuable.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Logs and Monitoring</h3>
+                    <p><strong>What to learn:</strong> Structured logging. Aggregation tools (<span class="pill">ELK Stack</span>, <span class="pill">Prometheus</span>/<span class="pill">Grafana</span>). APM (<span class="pill">New Relic</span>, <span class="pill">Datadog</span>). Alerting.</p>
+                    <p><strong>How much/depth:</strong> Instrument apps for effective logging/monitoring to detect/diagnose/resolve issues.</p>
+                </div>
+            </section>
+
+            <section id="system-design" class="content-section scroll-mt-custom">
+                <h2>5. System Design</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">This is about designing large-scale, distributed systems. It synthesizes many of the above topics.</p>
+                 <div class="content-subsection">
+                    <h3>Performance vs Scalability</h3>
+                    <p><strong>What to learn:</strong> Difference (single request speed vs. handling load). Horizontal vs. Vertical scaling.</p>
+                    <p><strong>How much/depth:</strong> Understand concepts and trade-offs.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Latency vs Throughput</h3>
+                    <p><strong>What to learn:</strong> Latency (delay) and Throughput (rate). How they relate and optimization.</p>
+                    <p><strong>How much/depth:</strong> Understand key metrics and impact of design choices.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Availability vs Consistency</h3>
+                    <p class="text-xs text-slate-400 mb-1 italic">(Relates to CAP Theorem)</p>
+                    <p><strong>What to learn:</strong> HA strategies (redundancy, failover). Consistency levels (strong, eventual).</p>
+                    <p><strong>How much/depth:</strong> Understand trade-offs, design for specific requirements.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Reliability Patterns</h3>
+                    <p><strong>What to learn:</strong> Circuit Breaker, Retry, Timeout, Bulkhead, Rate Limiting.</p>
+                    <p><strong>How much/depth:</strong> Understand how they build resilient, fault-tolerant systems.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Load Balancer</h3>
+                    <p><strong>What to learn:</strong> Algorithms (Round Robin). Layer 4 vs. Layer 7.</p>
+                    <p><strong>How much/depth:</strong> Understand traffic distribution, availability, scalability improvement.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Caching & CDN</h3>
+                    <p><strong>What to learn:</strong> Strategies (cache-aside). In-memory caches (<span class="pill">Redis</span>, <span class="pill">Memcached</span>). CDNs.</p>
+                    <p><strong>How much/depth:</strong> Understand performance improvement, load reduction. Know when/what to cache.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Communication & Messaging</h3>
+                    <p><strong>What to learn:</strong> Sync (REST, gRPC) vs. Async (Message Queues like <span class="pill">Kafka</span>, <span class="pill">SQS</span>). Idempotency.</p>
+                    <p><strong>How much/depth:</strong> Understand patterns, choose for decoupling and resilience.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Microservice Architecture</h3>
+                    <p><strong>What to learn:</strong> Principles. Pros (independent deployment, scalability) & Cons (complexity, distributed transactions).</p>
+                    <p><strong>How much/depth:</strong> Understand trade-offs vs. monoliths, common patterns.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Cloud-Native Technologies</h3>
+                    <p><strong>What to learn:</strong> Technologies for cloud (containers, orchestrators, serverless, service mesh like <span class="pill">Istio</span>).</p>
+                    <p><strong>How much/depth:</strong> Understand principles (e.g., Twelve-Factor App).</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Cloud Design Patterns</h3>
+                    <p><strong>What to learn:</strong> Specific patterns for cloud (scalability, resilience, cost optimization).</p>
+                    <p><strong>How much/depth:</strong> Familiarize to leverage cloud capabilities effectively.</p>
+                </div>
+            </section>
+
+            <section id="interview-preparation" class="content-section scroll-mt-custom">
+                <h2>6. Interview Preparation</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">This is about demonstrating your knowledge and problem-solving skills.</p>
+                <div class="content-subsection">
+                    <h3>Data Structures & Algorithms</h3>
+                    <p><strong>How much/depth:</strong> Constant practice. Solve medium/hard problems efficiently, explain thought process, analyze complexity.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Solve at least 500 problems on LeetCode</h3>
+                    <p><strong>How much/depth:</strong> Concrete goal. Understand patterns, not just memorize. Cover wide range of topics.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>System design case studies</h3>
+                    <p><strong>What to learn:</strong> Practice common questions (design Twitter, Uber). Framework: requirements, scale, components, bottlenecks, trade-offs.</p>
+                    <p><strong>How much/depth:</strong> Discuss approaches, trade-offs, articulate design choices clearly.</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>Common database problems & solutions</h3>
+                    <p><strong>What to learn:</strong> Questions on DB design, query optimization, transactions.</p>
+                    <p><strong>How much/depth:</strong> Discuss schema, write SQL, explain indexing/transactions.</p>
+                </div>
+            </section>
+
+            <footer class="text-center mt-10 md:mt-16 py-6 border-t border-slate-300">
+                <p class="text-slate-500 text-xs md:text-sm">Happy Learning! This roadmap is a guide to building a strong backend engineering foundation.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('#sidebarNav a');
+
+            // Active link highlighting
+            function updateActiveLink() {
+                let currentSectionId = '';
+                const scrollBuffer = window.innerHeight * 0.3; 
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (pageYOffset >= sectionTop - scrollBuffer && pageYOffset < sectionTop + sectionHeight - scrollBuffer) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+                
+                if (!currentSectionId && sections.length > 0 && pageYOffset < sections[0].offsetTop - scrollBuffer) {
+                     currentSectionId = sections[0].getAttribute('id');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Smooth scroll is handled by CSS
+                    setTimeout(updateActiveLink, 300); 
+                });
+            });
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink(); 
+
+            // Chart.js implementation
+            const chartCanvas = document.getElementById('roadmapChart');
+            if (chartCanvas) {
+                const ctx = chartCanvas.getContext('2d');
+                const roadmapChart = new Chart(ctx, {
+                    type: 'bar', 
+                    data: {
+                        labels: ['Foundation', 'Database', 'SW Arch.', 'DevOps', 'System Design', 'Interview Prep'],
+                        datasets: [{
+                            label: 'Number of Sub-topics',
+                            data: [9, 10, 9, 10, 10, 4], 
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(255, 206, 86, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1,
+                            borderRadius: 4, 
+                            barPercentage: 0.7, 
+                            categoryPercentage: 0.8 
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 2, 
+                                    color: '#6b7280' 
+                                },
+                                grid: {
+                                    color: '#e5e7eb' 
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#6b7280' 
+                                },
+                                grid: {
+                                    display: false 
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom', 
+                                labels: {
+                                    color: '#374151', 
+                                    boxWidth: 12,
+                                    padding: 20
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Roadmap Sections by Sub-topic Count',
+                                padding: {
+                                    top: 10,
+                                    bottom: 20
+                                },
+                                font: {
+                                    size: 16,
+                                    weight: '600'
+                                },
+                                color: '#1f2937' 
+                            },
+                            tooltip: {
+                                backgroundColor: '#4b5563', 
+                                titleColor: '#ffffff',
+                                bodyColor: '#e5e7eb', 
+                                cornerRadius: 4,
+                                displayColors: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y + ' sub-topics';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                console.error("Chart canvas element not found!");
+            }
+        });
+    </script>
+</body>
+</html>
+
