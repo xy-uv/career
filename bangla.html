@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যাকএন্ড ইঞ্জিনিয়ারিং রোডম্যাপ - সাইডবার ডিজাইন</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            scroll-behavior: smooth; /* For smooth scrolling on link click */
+        }
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .sidebar-link {
+            @apply block py-2.5 px-4 rounded-md text-sm text-gray-200 hover:bg-sky-700 hover:text-white transition-colors duration-150;
+        }
+        .sidebar-link.active {
+            @apply bg-sky-600 text-white font-semibold;
+        }
+        .content-section h2 {
+             @apply text-2xl md:text-3xl font-semibold text-sky-600 mb-6 border-b-2 border-sky-100 pb-3;
+        }
+        .content-subsection {
+            @apply mb-6 p-4 bg-white rounded-lg shadow-md border border-slate-200;
+        }
+        .content-subsection h3 {
+            @apply text-lg md:text-xl font-semibold text-slate-700 mb-2;
+        }
+        .content-subsection p, .content-subsection ul {
+            @apply text-slate-600 text-sm md:text-base mb-1;
+        }
+        .content-subsection ul {
+            @apply list-disc list-inside pl-4;
+        }
+        .pill {
+            @apply inline-block bg-sky-100 text-sky-700 text-xs font-semibold mr-2 mb-1 px-2.5 py-0.5 rounded-full;
+        }
+        /* Ensure sections have enough top margin to not be hidden by a fixed header if one were added */
+        .scroll-mt-custom {
+            scroll-margin-top: 80px; /* Adjust as needed, e.g., height of a future fixed header */
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <aside class="w-full md:w-72 bg-slate-800 text-white p-4 md:p-5 space-y-2 md:fixed md:h-full md:overflow-y-auto shadow-lg">
+            <h1 class="text-xl md:text-2xl font-bold mb-5 text-center text-sky-400">রোডম্যাপ সূচী</h1>
+            <nav id="sidebarNav">
+                <a href="#foundation" class="sidebar-link">১. ভিত্তি</a>
+                <a href="#database" class="sidebar-link">২. ডেটাবেস</a>
+                <a href="#software-architecture" class="sidebar-link">৩. সফটওয়্যার আর্কিটেকচার</a>
+                <a href="#devops" class="sidebar-link">৪. ডেভঅপস</a>
+                <a href="#system-design" class="sidebar-link">৫. সিস্টেম ডিজাইন</a>
+                <a href="#interview-preparation" class="sidebar-link">৬. ইন্টারভিউ প্রস্তুতি</a>
+            </nav>
+            <div class="text-center mt-auto pt-4 text-xs text-slate-400">
+                <p>&copy; ২০২৫ রোডম্যাপ</p>
+            </div>
+        </aside>
+
+        <main class="w-full md:ml-72 p-4 md:p-8 overflow-y-auto">
+            <header class="mb-8 md:mb-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-sky-700">ইন্টারেক্টিভ ব্যাকএন্ড ইঞ্জিনিয়ারিং রোডম্যাপ</h1>
+                <p class="text-md md:text-lg text-slate-600 mt-2">
+                    এই বিষয়গুলো শুধু জানাই যথেষ্ট নয়, বরং এগুলো গভীরভাবে উপলব্ধি করতে হবে যাতে আপনি এগুলো নিয়ে তর্ক করতে, সঠিক সিদ্ধান্ত নিতে এবং জটিল সমস্যা সমাধান করতে পারেন।
+                </p>
+            </header>
+
+            <section id="foundation" class="content-section scroll-mt-custom">
+                <h2>১. ভিত্তি (Foundation)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">এটি হলো মূল ভিত্তি। শক্তিশালী ভিত্তি ছাড়া বাকি সবকিছু অনেক কঠিন হয়ে যায়।</p>
+                <div class="content-subsection">
+                    <h3>প্রোগ্রামিং ভাষা (Programming Languages)</h3>
+                    <p><strong>কী শিখবেন:</strong> শুধু সিনট্যাক্স শিখবেন না। এক বা দুটি ভাষা বেছে নিন (যেমন: <span class="pill">Java</span>, <span class="pill">Python</span>, <span class="pill">C++</span>, <span class="pill">Go</span>, <span class="pill">Rust</span> – যে ভাষাগুলো আপনাকে নিম্ন-স্তরের ধারণাগুলো বুঝতে বাধ্য করে, যেমন C++ বা Java, সেগুলো প্রাথমিকভাবে উপকারী হতে পারে) এবং সেগুলোতে দক্ষতা অর্জন করুন। তাদের মূল দর্শন, মেমরি ম্যানেজমেন্ট (যদি প্রযোজ্য হয়, যেমন C++ এর ম্যানুয়াল বনাম Java এর GC), স্ট্যান্ডার্ড লাইব্রেরি, বিল্ট-ইন ডেটা স্ট্রাকচার, কনকারেন্সি মডেল এবং সাধারণ ইডিয়ামগুলো বুঝুন।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> আপনার জটিল, কার্যকর এবং রক্ষণাবেক্ষণযোগ্য কোড লিখতে পারা উচিত। ভাষা কীভাবে কম্পাইল/ইন্টারপ্রেট করে, এর রানটাইম এনভায়রনমেন্ট এবং এর পারফরম্যান্স বৈশিষ্ট্যগুলো বুঝুন। উদাহরণস্বরূপ, Java শিখলে JVM, গার্বেজ কালেকশন এবং Java Collections Framework গভীরভাবে বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডেটা স্ট্রাকচার (Data Structures)</h3>
+                    <p><strong>কী শিখবেন:</strong> সাধারণ ডেটা স্ট্রাকচার: Arrays, Linked Lists (Singly, Doubly, Circular), Stacks, Queues (and Deques, Priority Queues), Trees (Binary Trees, BSTs, AVL Trees, Red-Black Trees, Heaps, Tries), Graphs (Directed, Undirected, Weighted), Hash Tables (Hash Maps, Hash Sets).</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> প্রতিটির জন্য, এর অভ্যন্তরীণ কার্যকারিতা, কীভাবে স্ক্র্যাচ থেকে এটি প্রয়োগ করতে হয় (অন্তত ধারণাগতভাবে), বিভিন্ন ক্রিয়াকলাপের (সন্নিবেশ, মুছে ফেলা, অনুসন্ধান, ট্রাভার্সাল) জন্য এর সময় এবং স্থান জটিলতা, এর সুবিধা, অসুবিধা এবং সাধারণ ব্যবহারের ক্ষেত্রগুলো বুঝুন। দক্ষতার সাথে কোনও সমস্যা সমাধানের জন্য কখন কোন নির্দিষ্ট ডেটা স্ট্রাকচার ব্যবহার করতে হবে তা জানুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>অ্যালগরিদম (Algorithms)</h3>
+                    <p><strong>কী শিখবেন:</strong> মৌলিক অ্যালগরিদম: Sorting (Merge Sort, Quick Sort, Heap Sort, ইত্যাদি), Searching (Binary Search, Linear Search), Graph Algorithms (BFS, DFS, Dijkstra's, Bellman-Ford, Floyd-Warshall, Minimum Spanning Trees like Prim's/Kruskal's), Dynamic Programming (ধারণা এবং সাধারণ সমস্যা যেমন Fibonacci, Knapsack, Longest Common Subsequence বুঝুন), Greedy Algorithms, Divide and Conquer, Recursion and Backtracking.</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> প্রতিটি অ্যালগরিদম কীভাবে কাজ করে তা বুঝুন, এর এক্সিকিউশন ট্রেস করতে সক্ষম হন, এর সময় এবং স্থান জটিলতা বিশ্লেষণ করুন (Big O নোটেশন এখানে গুরুত্বপূর্ণ) এবং কখন ও কীভাবে এটি প্রয়োগ করতে হয় তা জানুন। এগুলো প্রয়োগ করার অনুশীলন করুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>অবজেক্ট-ওরিয়েন্টেড প্রোগ্রামিং (OOP)</h3>
+                    <p><strong>কী শিখবেন:</strong> চারটি প্রধান স্তম্ভ: Encapsulation, Abstraction, Inheritance, Polymorphism। এছাড়াও, ক্লাসেস, অবজেক্টস, ইন্টারফেস, অ্যাবস্ট্রাক্ট ক্লাসেস, কনস্ট্রাকটর, ডেস্ট্রাকটর (যদি প্রযোজ্য হয়), মেথড ওভাররাইডিং এবং মেথড ওভারলোডিং এর মতো ধারণাগুলো।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এই ধারণাগুলো কেবল তাত্ত্বিকভাবে নয়, বরং কীভাবে এগুলো মডুলার, পুনঃব্যবহারযোগ্য এবং রক্ষণাবেক্ষণযোগ্য সফ্টওয়্যার ডিজাইনে সহায়তা করে তা বুঝুন। আপনার নির্বাচিত OOP ভাষায় এগুলো কার্যকরভাবে প্রয়োগ করতে সক্ষম হন। কাপলিং এবং কোহেশন এর মতো ধারণাগুলো বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডিজাইন প্যাটার্ন (মৌলিক) (Design Patterns - Foundational)</h3>
+                    <p><strong>কী শিখবেন:</strong> Creational (e.g., Singleton, Factory, Abstract Factory, Builder), Structural (e.g., Adapter, Decorator, Facade, Proxy), and Behavioral (e.g., Observer, Strategy, Command, Iterator, Template Method) patterns. "Gang of Four" (GoF) প্যাটার্নগুলো একটি ক্লাসিক সূচনা বিন্দু।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> প্রতিটি প্যাটার্নের জন্য, এটি যে সমস্যাটি সমাধান করে, এর কাঠামো, অংশগ্রহণকারী, পরিণতি (সুবিধা ও অসুবিধা) এবং সাধারণ ব্যবহারের ক্ষেত্রগুলো বুঝুন। কখন একটি প্যাটার্ন প্রযোজ্য হতে পারে তা সনাক্ত করতে এবং এটি প্রয়োগ করতে সক্ষম হন। এটি সুগঠিত, নমনীয় কোড লেখার বিষয়ে।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>নেটওয়ার্কিং (মৌলিক) (Networking - Foundational)</h3>
+                    <p><strong>কী শিখবেন:</strong> OSI Model (স্তরগুলো ধারণাগতভাবে বুঝুন), TCP/IP Protocol Suite (IP, TCP, UDP, HTTP, HTTPS, DNS, FTP, SMTP)। সকেট, পোর্ট, মৌলিক ক্লায়েন্ট-সার্ভার কমিউনিকেশন মডেল।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> নেটওয়ার্ক জুড়ে ডেটা কীভাবে ভ্রমণ করে, TCP (নির্ভরযোগ্য, সংযোগ-ভিত্তিক) এবং UDP (অনির্ভরযোগ্য, সংযোগবিহীন) এর মধ্যে পার্থক্য, HTTP অনুরোধ/প্রতিক্রিয়া কেমন দেখতে (মেথড, হেডার, স্ট্যাটাস কোড) এবং DNS রেজোলিউশন কীভাবে কাজ করে তা বুঝুন। ব্রাউজারে একটি URL টাইপ করে Enter চাপলে কী ঘটে তা ব্যাখ্যা করতে আপনার সক্ষম হওয়া উচিত।</p>
+                </div>
+                 <div class="content-subsection">
+                    <h3>নিরাপত্তা (মৌলিক) (Security - Foundational)</h3>
+                    <p><strong>কী শিখবেন:</strong> গোপনীয়তা, অখণ্ডতা, প্রাপ্যতা (CIA ট্রায়াড) এর মৌলিক ধারণা। সাধারণ দুর্বলতা যেমন SQL Injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF)। প্রমাণীকরণ (আপনি কে?) বনাম অনুমোদন (আপনি কী করতে পারবেন?) এর মৌলিক বিষয়। হ্যাশিং (পাসওয়ার্ডের জন্য), মৌলিক এনক্রিপশন বনাম এনকোডিং।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ঝুঁকি এবং এই দুর্বলতাগুলো কীভাবে ঘটে তা বুঝুন। প্রতিরক্ষামূলক কোডিং অনুশীলন সম্পর্কে জানুন। আপনার নিরাপত্তা বিশেষজ্ঞ হওয়ার দরকার নেই, তবে সাধারণ হুমকি এবং কীভাবে কোড লিখতে হয় যা তাদের প্রতি কম সংবেদনশীল সে সম্পর্কে আপনার সচেতন হওয়া উচিত।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>অপারেটিং সিস্টেম (মৌলিক) (Operating System - Foundational)</h3>
+                    <p><strong>কী শিখবেন:</strong> মূল ধারণা: Processes, Threads (এবং পার্থক্য), CPU Scheduling, Memory Management (Virtual Memory, Paging, Segmentation), File Systems, Inter-Process Communication (IPC), Deadlocks, Synchronization primitives (Mutexes, Semaphores, Monitors)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> OS কীভাবে সিস্টেম রিসোর্স পরিচালনা করে এবং আপনার প্রোগ্রামগুলো OS এর সাথে কীভাবে ইন্টারঅ্যাক্ট করে তা বুঝুন। এই জ্ঞান কার্যকর, শক্তিশালী অ্যাপ্লিকেশন লেখার জন্য, বিশেষ করে কনকারেন্ট অ্যাপ্লিকেশন এবং পারফরম্যান্স সমস্যা ডিবাগ করার জন্য অত্যন্ত গুরুত্বপূর্ণ।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>মাল্টি-থ্রেডিং (Multi-Threading)</h3>
+                    <p><strong>কী শিখবেন:</strong> কনকারেন্সি বনাম প্যারালালিজম এর ধারণা। থ্রেড তৈরি এবং পরিচালনা করা। রেস কন্ডিশন প্রতিরোধ এবং ডেটা সামঞ্জস্যতা নিশ্চিত করার জন্য সিনক্রোনাইজেশন কৌশল (লক, মিউটেক্স, সেমাফোর, কন্ডিশন ভেরিয়েবল)। ডেডলক বোঝা এবং কীভাবে তা এড়ানো যায়। থ্রেড পুল।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> সঠিকভাবে এবং দক্ষতার সাথে একাধিক থ্রেড ব্যবহার করে কনকারেন্ট প্রোগ্রাম লিখতে সক্ষম হন। শেয়ার্ড মিউটেবল স্টেট এর চ্যালেঞ্জ এবং আপনার নির্বাচিত ভাষায় নিরাপদ কনকারেন্ট প্রোগ্রামিংয়ের জন্য সাধারণ প্যাটার্নগুলো বুঝুন।</p>
+                </div>
+            </section>
+
+            <section id="database" class="content-section scroll-mt-custom">
+                <h2>২. ডেটাবেস (Database)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">বেশিরভাগ ব্যাকএন্ড সিস্টেমের কেন্দ্রবিন্দু হলো ডেটাবেস।</p>
+                 <div class="content-subsection">
+                    <h3>SQL ও NoSQL ডেটাবেস</h3>
+                    <p><strong>কী শিখবেন:</strong></p>
+                    <ul>
+                        <li><strong>SQL:</strong> রিলেশনাল মডেল, SQL সিনট্যাক্স (DDL, DML, DQL, TCL), জয়েন, সাবকোয়েরি, অ্যাগ্রিগেশন, ভিউ, স্টোরড প্রসিডিউর, ট্রিগার, ট্রানজ্যাকশন।</li>
+                        <li><strong>NoSQL:</strong> বিভিন্ন প্রকার (Key-Value, Document, Column-Family, Graph), তাদের ব্যবহারের ক্ষেত্র, সুবিধা এবং SQL এর তুলনায় অসুবিধা। উদাহরণ: <span class="pill">MongoDB</span> (Document), <span class="pill">Redis</span> (Key-Value), <span class="pill">Cassandra</span> (Column-Family)।</li>
+                    </ul>
+                    <p><strong>কতটুকু/গভীরতা:</strong> SQL এর জন্য, জটিল কোয়েরি লেখা এবং অপটিমাইজেশনের জন্য কোয়েরি এক্সিকিউশন প্ল্যান বুঝতে পারদর্শী হন। NoSQL এর জন্য, ডেটা মডেল এবং কখন SQL এর পরিবর্তে একটি নির্দিষ্ট প্রকার বেছে নেবেন (যেমন, স্কেলেবিলিটি, নমনীয় স্কিমা) তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>নর্মালাইজেশন ও ডিনর্মালাইজেশন (Normalization & Denormalization)</h3>
+                    <p><strong>কী শিখবেন:</strong> ডেটাবেস নর্মালাইজেশন ফর্ম (1NF, 2NF, 3NF, BCNF)। নর্মালাইজেশনের উদ্দেশ্য (রিডান্ডেন্সি কমানো, ডেটা ইন্টিগ্রিটি উন্নত করা)। ডিনর্মালাইজেশন কৌশল এবং কখন সেগুলো ব্যবহার করতে হবে (যেমন, পারফরম্যান্সের জন্য)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> নর্মালাইজড রিলেশনাল ডেটাবেস স্কিমা ডিজাইন করতে সক্ষম হন। নর্মালাইজেশন (রাইট এফিসিয়েন্সি, ইন্টিগ্রিটি) এবং ডিনর্মালাইজেশন (রিড এফিসিয়েন্সি) এর মধ্যে ট্রেড-অফ বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ইনডেক্স (Indexes)</h3>
+                    <p><strong>কী শিখবেন:</strong> বিভিন্ন ধরনের ইনডেক্স (যেমন, B-Tree, Hash, Clustered, Non-Clustered, Composite)। ইনডেক্স কীভাবে কোয়েরি দ্রুত করে। ইনডেক্সের খরচ (স্টোরেজ, রাইট ওভারহেড)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> কখন এবং কীভাবে কার্যকর ইনডেক্স তৈরি করতে হয় তা বুঝুন। কোয়েরি পারফরম্যান্স বিশ্লেষণ করতে এবং অনুপস্থিত বা ভুল ইনডেক্স একটি বাধা কিনা তা নির্ধারণ করতে সক্ষম হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>CAP থিওরেম (CAP Theorem)</h3>
+                    <p><strong>কী শিখবেন:</strong> Consistency, Availability, Partition Tolerance। থিওরেমটি বলে যে একটি ডিস্ট্রিবিউটেড সিস্টেম একই সাথে এই তিনটি গ্যারান্টির মধ্যে কেবল দুটি সরবরাহ করতে পারে।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> প্রতিটি গ্যারান্টির অর্থ কী এবং ডিস্ট্রিবিউটেড ডেটাবেস সিস্টেম (NoSQL এ সাধারণ) ডিজাইনের জন্য তিনটির মধ্যে দুটি বেছে নেওয়ার প্রভাবগুলো বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ACID ও BASE কনসিস্টেন্সি মডেল (ACID & BASE Consistency Model)</h3>
+                    <p><strong>কী শিখবেন:</strong></p>
+                    <ul>
+                        <li><strong>ACID:</strong> Atomicity, Consistency, Isolation, Durability (সাধারণত RDBMS এর সাথে সম্পর্কিত)।</li>
+                        <li><strong>BASE:</strong> Basically Available, Soft state, Eventually consistent (সাধারণত NoSQL এর সাথে সম্পর্কিত)।</li>
+                    </ul>
+                    <p><strong>কতটুকু/গভীরতা:</strong> প্রতিটি বৈশিষ্ট্যের অর্থ কী এবং বিভিন্ন ডেটাবেস সিস্টেমে ট্রানজ্যাকশন ম্যানেজমেন্ট এবং ডেটা কনসিস্টেন্সিকে কীভাবে প্রভাবিত করে তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>(ডিস্ট্রিবিউটেড) ট্রানজ্যাকশন ((Distributed) Transactions)</h3>
+                    <p><strong>কী শিখবেন:</strong> একাধিক ডেটাবেস নোড বা পরিষেবা জুড়ে ট্রানজ্যাকশনাল ইন্টিগ্রিটি বজায় রাখার চ্যালেঞ্জ। Two-Phase Commit (2PC) এর মতো ধারণা। ইভেন্টুয়াল কনসিস্টেন্সির বিকল্প হিসেবে সাগাস প্যাটার্ন।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> জড়িত জটিলতাগুলো বুঝুন। যদিও 2PC প্রয়োগ করা বিরল হতে পারে, ধারণাগুলো জানা ডিস্ট্রিবিউটেড সিস্টেমের চ্যালেঞ্জ বুঝতে সহায়তা করে।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডেটাবেস রেপ্লিকেশন (Database Replication)</h3>
+                    <p><strong>কী শিখবেন:</strong> Master-Slave রেপ্লিকেশন, Master-Master রেপ্লিকেশন। Synchronous বনাম Asynchronous রেপ্লিকেশন। উদ্দেশ্য: উচ্চ প্রাপ্যতা, দুর্যোগ পুনরুদ্ধার, রিড স্কেলিং।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বিভিন্ন রেপ্লিকেশন কৌশল, তাদের সুবিধা ও অসুবিধা এবং কীভাবে তারা কনসিস্টেন্সি এবং প্রাপ্যতাকে প্রভাবিত করে তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডেটা পার্টিশনিং / শার্ডিং (Data Partitioning / Sharding)</h3>
+                    <p><strong>কী শিখবেন:</strong> Horizontal partitioning (sharding), vertical partitioning। বিভিন্ন শার্ডিং কৌশল (যেমন, range-based, hash-based, directory-based)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> স্কেলেবিলিটি এবং পারফরম্যান্সের জন্য কেন এবং কীভাবে বড় ডেটাসেট পার্টিশন করতে হয় তা বুঝুন। শার্ডিংয়ের চ্যালেঞ্জগুলো (যেমন, হট স্পট, ক্রস-শার্ কোয়েরি) বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কনসিস্টেন্ট হ্যাশিং (Consistent Hashing)</h3>
+                    <p><strong>কী শিখবেন:</strong> ডিস্ট্রিবিউটেড সিস্টেমে (শার্ডেড ডেটাবেস এবং Redis এর মতো ডিস্ট্রিবিউটেড ক্যাশে সহ) ব্যবহৃত একটি কৌশল যা নোড যুক্ত বা সরানো হলে ডেটা রিম্যাপিং সর্বনিম্ন করে।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> অ্যালগরিদম এবং ডাইনামিক ডিস্ট্রিবিউটেড এনভায়রনমেন্টে এর সুবিধাগুলো বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডেটাবেস ফেডারেশন (Database Federation)</h3>
+                    <p><strong>কী শিখবেন:</strong> একাধিক স্বায়ত্তশাসিত, ভিন্নধর্মী ডেটাবেসকে একটি একক, ভার্চুয়াল ডেটাবেস সিস্টেমে একীভূত করা।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> একটি আরও উন্নত ধারণা, তবে লিগ্যাসি সিস্টেম বা বিভিন্ন ডেটা উৎসের সাথে কাজ করার সময় সচেতন থাকা ভালো।</p>
+                </div>
+            </section>
+
+            <section id="software-architecture" class="content-section scroll-mt-custom">
+                <h2>৩. সফটওয়্যার আর্কিটেকচার (Software Architecture)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">এটি সফটওয়্যার সিস্টেমের উচ্চ-স্তরের কাঠামো এবং ডিজাইন সিদ্ধান্ত সম্পর্কিত।</p>
+                <div class="content-subsection">
+                    <h3>ডিজাইন প্যাটার্ন (আর্কিটেকচারাল) (Design Patterns - Architectural)</h3>
+                    <p><strong>কী শিখবেন:</strong> এটি ডিজাইন প্যাটার্নগুলোকে উচ্চতর, সিস্টেম-স্তরের দৃষ্টিকোণ থেকে পুনরায় দেখে। এছাড়াও Layered, Client-Server, Microservices, Event-Driven, Pipe-Filter ইত্যাদি আর্কিটেকচারাল প্যাটার্ন অন্তর্ভুক্ত।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এই প্যাটার্নগুলো কীভাবে সম্পূর্ণ অ্যাপ্লিকেশন বা সিস্টেম কাঠামোতে সহায়তা করে, তাদের ট্রেড-অফ এবং কখন সেগুলো প্রয়োগ করতে হয় তা বুঝুন।</p>
+                </div>
+                 <div class="content-subsection">
+                    <h3>ডিজাইন নীতিমালা (Design Principles)</h3>
+                    <p><strong>কী শিখবেন:</strong> SOLID (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion)। DRY (Don't Repeat Yourself), KISS (Keep It Simple, Stupid), YAGNI (You Ain't Gonna Need It)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এগুলো ভালো মানের, রক্ষণাবেক্ষণযোগ্য এবং নমনীয় কোড ও সিস্টেম লেখার জন্য নির্দেশিকা। এগুলো আত্মস্থ করুন এবং আপনার ডিজাইনে প্রয়োগ করার চেষ্টা করুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>এপিআই ও ইন্টিগ্রেশন (APIs & Integrations)</h3>
+                    <p><strong>কী শিখবেন:</strong> RESTful API ডিজাইন (রিসোর্স নামকরণ, HTTP মেথড, স্ট্যাটাস কোড, ভার্সনিং, স্টেটলেসনেস)। <span class="pill">GraphQL</span>। <span class="pill">gRPC</span>। API নিরাপত্তা (<span class="pill">OAuth</span>, <span class="pill">API Keys</span>, <span class="pill">JWT</span>)। অ্যাসিঙ্ক্রোনাস কমিউনিকেশন এবং ইন্টিগ্রেশনের জন্য মেসেজ কিউ (যেমন, <span class="pill">RabbitMQ</span>, <span class="pill">Kafka</span>)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> স্পষ্ট, সামঞ্জস্যপূর্ণ এবং সুরক্ষিত API ডিজাইন করতে সক্ষম হন। বিভিন্ন ইন্টিগ্রেশন প্যাটার্ন এবং কখন সিঙ্ক্রোনাস বনাম অ্যাসিঙ্ক্রোনাস কমিউনিকেশন ব্যবহার করতে হয় তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>নেটওয়ার্ক, নিরাপত্তা ও ক্লাউড (আর্কিটেকচারাল) (Networks, Security & Cloud - Architectural)</h3>
+                    <p><strong>কী শিখবেন:</strong> নেটওয়ার্কিং (VPCs, সাবনেট, ফায়ারওয়াল, লোড ব্যালান্সার), নিরাপত্তা (আইডেন্টিটি ম্যানেজমেন্ট, অ্যাট রেস্ট/ট্রানজিট এনক্রিপশন, থ্রেট মডেলিং) এবং ক্লাউড পরিষেবাগুলো কীভাবে আর্কিটেকচারাল সিদ্ধান্তকে প্রভাবিত করে।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> কীভাবে সুরক্ষিত, স্থিতিস্থাপক এবং ক্লাউড সক্ষমতা কার্যকরভাবে ব্যবহার করে সিস্টেম ডিজাইন করতে হয় (যেমন, ইলাস্টিসিটি, ফল্ট টলারেন্সের জন্য ডিজাইন) তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>বিভিন্ন টুলিং (Different Toolings)</h3>
+                    <p><strong>কী শিখবেন:</strong> ডায়াগ্রামিংয়ের জন্য টুল (যেমন, <span class="pill">Lucidchart</span>, <span class="pill">draw.io</span>), API ডিজাইনের জন্য টুল (যেমন, <span class="pill">Postman</span>, <span class="pill">Swagger/OpenAPI</span>), প্রজেক্ট ম্যানেজমেন্ট এবং কোলাবোরেশন টুল।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> আর্কিটেকচারাল ডিজাইন এবং ডকুমেন্টেশন প্রক্রিয়ায় সহায়ক টুলগুলোর সাথে পরিচিত হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>রিকোয়ারমেন্ট এলিসিটেশন (Requirement Elicitation)</h3>
+                    <p><strong>কী শিখবেন:</strong> স্টেকহোল্ডারদের কাছ থেকে ফাংশনাল এবং নন-ফাংশনাল রিকোয়ারমেন্ট (পারফরম্যান্স, স্কেলেবিলিটি, নিরাপত্তা, রক্ষণাবেক্ষণযোগ্যতা) সংগ্রহ এবং বোঝার কৌশল।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> আর্কিটেকচার অবশ্যই রিকোয়ারমেন্ট পূরণ করবে। ব্যবসায়িক প্রয়োজনগুলোকে কীভাবে প্রযুক্তিগত স্পেসিফিকেশনে রূপান্তর করতে হয় তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডকুমেন্টেশন (Documentation)</h3>
+                    <p><strong>কী শিখবেন:</strong> আর্কিটেকচারাল সিদ্ধান্ত, ডিজাইন এবং API ডকুমেন্ট করার গুরুত্ব। কার্যকর ডকুমেন্টেশনের জন্য টুল এবং ফরম্যাট ব্যবহার করা।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> যে আর্কিটেকচার ডকুমেন্ট করা হয়নি বা খারাপভাবে ডকুমেন্ট করা হয়েছে তা রক্ষণাবেক্ষণ এবং বিকশিত করা কঠিন। স্পষ্ট এবং সংক্ষিপ্ত ডকুমেন্টেশন তৈরি করতে শিখুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>বিভিন্ন ডায়াগ্রাম (Different Diagrams)</h3>
+                    <p><strong>কী শিখবেন:</strong> সফটওয়্যার আর্কিটেকচারে ব্যবহৃত সাধারণ ডায়াগ্রাম প্রকার: UML ডায়াগ্রাম (Class, Sequence, Component, Deployment), C4 মডেল (Context, Container, Component, Code), ফ্লোচার্ট, ডেটা ফ্লো ডায়াগ্রাম।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বিভিন্ন স্টেকহোল্ডারদের কাছে আর্কিটেকচার কার্যকরভাবে যোগাযোগ করে এমন ডায়াগ্রাম তৈরি এবং বুঝতে সক্ষম হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ডিজাইন সিদ্ধান্ত (Design Decisions)</h3>
+                    <p><strong>কী শিখবেন:</strong> আর্কিটেকচারাল পছন্দ করার প্রক্রিয়া, ট্রেড-অফ মূল্যায়ন করা এবং সেই সিদ্ধান্তের পেছনের যুক্তি ডকুমেন্ট করা (যেমন, Architecture Decision Records - ADRs ব্যবহার করে)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বুঝুন যে আর্কিটেকচার হলো পছন্দ করা, এবং প্রতিটি পছন্দের সুবিধা ও অসুবিধা রয়েছে।</p>
+                </div>
+            </section>
+
+            <section id="devops" class="content-section scroll-mt-custom">
+                <h2>৪. ডেভঅপস (DevOps)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">দ্রুত এবং নির্ভরযোগ্য সফটওয়্যার সরবরাহের জন্য ডেভেলপমেন্ট এবং অপারেশনের মধ্যে ব্যবধান পূরণ করা।</p>
+                <div class="content-subsection">
+                    <h3>লিনাক্স অপারেটিং সিস্টেম (Linux Operating System)</h3>
+                    <p><strong>কী শিখবেন:</strong> কোর লিনাক্স কমান্ড, ফাইল সিস্টেম নেভিগেশন, পারমিশন, প্রসেস ম্যানেজমেন্ট, প্যাকেজ ম্যানেজমেন্ট, শেল স্ক্রিপ্টিং (bash), বেসিক সিস্টেম অ্যাডমিনিস্ট্রেশন।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বেশিরভাগ সার্ভার লিনাক্সে চলে। ব্যাকএন্ড ইঞ্জিনিয়ারদের লিনাক্স পরিবেশে কাজ করতে, অ্যাপ্লিকেশন পরিচালনা করতে এবং সমস্যা সমাধানে স্বাচ্ছন্দ্য বোধ করতে হবে।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কমান্ড লাইন ইন্টারফেস (CLI)</h3>
+                    <p><strong>কী শিখবেন:</strong> টার্মিনাল/শেলের সাথে দক্ষতা। বিভিন্ন কাজের জন্য CLI টুল ব্যবহার করা (<span class="pill">Git</span>, <span class="pill">Docker</span>, ক্লাউড CLI, <span class="pill">grep</span>, <span class="pill">awk</span>, <span class="pill">sed</span> এর মতো টেক্সট প্রসেসিং টুল)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> CLI অটোমেশন এবং পরিচালনার জন্য একটি শক্তিশালী টুল। এখানে দক্ষতা চাবিকাঠি।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ভার্সন কন্ট্রোল সিস্টেম (Version Control System)</h3>
+                    <p><strong>কী শিখবেন:</strong> <span class="pill">Git</span> হলো স্ট্যান্ডার্ড। ব্রাঞ্চিং কৌশল (Gitflow, GitHub Flow), মার্জিং, রিবেসিং, কনফ্লিক্ট হ্যান্ডলিং, পুল রিকোয়েস্ট, .gitignore। <span class="pill">GitHub</span>, <span class="pill">GitLab</span>, <span class="pill">Bitbucket</span> এর মতো প্ল্যাটফর্ম।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> কোলাবোরেটিভ ডেভেলপমেন্ট এবং কোড হিস্টোরি বজায় রাখার জন্য Git এর গভীর উপলব্ধি।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>নেটওয়ার্কিং, নিরাপত্তা ও প্রোটোকল (ডেভঅপস কনটেক্সট) (Networking, Security & Protocols - DevOps Context)</h3>
+                    <p><strong>কী শিখবেন:</strong> অ্যাপ্লিকেশনগুলো কীভাবে ইন্টারনেটে এক্সপোজ করা হয় (পোর্ট, ফায়ারওয়াল, লোড ব্যালান্সার, <span class="pill">Nginx</span>/<span class="pill">HAProxy</span> এর মতো রিভার্স প্রক্সি) তা বোঝা। SSL/TLS সার্টিফিকেট। বেসিক নেটওয়ার্ক ট্রাবলশুটিং টুল (<span class="pill">ping</span>, <span class="pill">traceroute</span>, <span class="pill">netstat</span>, <span class="pill">curl</span>)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> অপারেশনাল দৃষ্টিকোণ থেকে – অ্যাপ্লিকেশনগুলোর জন্য নেটওয়ার্ক ট্র্যাফিক কীভাবে স্থাপন, সুরক্ষিত এবং পরিচালনা করতে হয়।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ক্লাউড প্রোভাইডার (Cloud Providers)</h3>
+                    <p><strong>কী শিখবেন:</strong> অন্তত একটি প্রধান ক্লাউড প্রোভাইডারের (<span class="pill">AWS</span>, <span class="pill">Azure</span>, or <span class="pill">GCP</span>) কোর পরিষেবা। Compute (e.g., EC2, VMs), Storage (e.g., S3, Blob Storage), Databases (e.g., RDS, Cosmos DB), Networking (e.g., VPC), IAM (Identity and Access Management)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ক্লাউডে অ্যাপ্লিকেশন স্থাপন এবং পরিচালনা করতে সক্ষম হন। বেসিক পরিষেবাগুলো এবং সেগুলো কীভাবে একসাথে ফিট করে তা বুঝুন। Serverless (e.g., <span class="pill">AWS Lambda</span>, <span class="pill">Azure Functions</span>) এছাড়াও গুরুত্বপূর্ণ।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কন্টেইনার (Containers)</h3>
+                    <p><strong>কী শিখবেন:</strong> <span class="pill">Docker</span>। Dockerfile তৈরি করা, ইমেজ তৈরি করা, কন্টেইনার চালানো, মাল্টি-কন্টেইনার অ্যাপ্লিকেশনের জন্য Docker Compose, কন্টেইনার রেজিস্ট্রি।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> কন্টেইনারাইজেশনের সুবিধা (ধারাবাহিকতা, পোর্টেবিলিটি, আইসোলেশন) বুঝুন এবং অ্যাপ্লিকেশন প্যাকেজ ও চালানোর জন্য Docker ব্যবহারে পারদর্শী হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কনফিগারেশন ম্যানেজমেন্ট (Configuration Management)</h3>
+                    <p><strong>কী শিখবেন:</strong> <span class="pill">Ansible</span>, <span class="pill">Chef</span>, <span class="pill">Puppet</span>, বা <span class="pill">Terraform</span> (Infrastructure as Code - IaC এর জন্য) এর মতো টুল। কোড হিসেবে সিস্টেম কনফিগারেশন পরিচালনার নীতিমালা।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ধারাবাহিকতা এবং পুনরাবৃত্তিযোগ্যতার জন্য সার্ভার এবং অবকাঠামোর প্রভিশনিং এবং কনফিগারেশন কীভাবে স্বয়ংক্রিয় করতে হয় তা বুঝুন। Terraform বিশেষভাবে IaC এর জন্য জনপ্রিয়।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>CI/CD (Continuous Integration/Continuous Deployment/Delivery)</h3>
+                    <p><strong>কী শিখবেন:</strong> CI/CD এর নীতিমালা। <span class="pill">Jenkins</span>, <span class="pill">GitLab CI</span>, <span class="pill">GitHub Actions</span>, <span class="pill">CircleCI</span> এর মতো টুল। স্বয়ংক্রিয় বিল্ড, টেস্ট এবং ডেপ্লয়মেন্ট পাইপলাইন সেট আপ করা।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> দ্রুত এবং নির্ভরযোগ্যভাবে ফিচার রিলিজ করার জন্য সফটওয়্যার ডেলিভারি প্রক্রিয়া কীভাবে স্বয়ংক্রিয় করতে হয় তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কন্টেইনার অর্কেস্ট্রেশন (Container Orchestration)</h3>
+                    <p><strong>কী শিখবেন:</strong> <span class="pill">Kubernetes (K8s)</span> প্রধান টুল। মূল ধারণা: Pods, Services, Deployments, ConfigMaps, Secrets, Ingress। প্যাকেজ পরিচালনার জন্য <span class="pill">Helm</span>।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> Kubernetes ব্যবহার করে কন্টেইনারাইজড অ্যাপ্লিকেশন কীভাবে স্থাপন, পরিচালনা এবং স্কেল করতে হয় তা বুঝুন। এটি একটি জটিল কিন্তু অত্যন্ত মূল্যবান দক্ষতা।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>লগ এবং মনিটরিং (Logs and Monitoring)</h3>
+                    <p><strong>কী শিখবেন:</strong> লগিংয়ের গুরুত্ব। স্ট্রাকচার্ড লগিং। লগ অ্যাগ্রিগেশন টুল (যেমন, <span class="pill">ELK Stack</span> - Elasticsearch, Logstash, Kibana; বা <span class="pill">Prometheus</span>/<span class="pill">Grafana</span>/<span class="pill">Loki</span>)। অ্যাপ্লিকেশন পারফরম্যান্স মনিটরিং (APM টুল যেমন <span class="pill">New Relic</span>, <span class="pill">Datadog</span>), সিস্টেম মেট্রিক্স (CPU, মেমরি, ডিস্ক, নেটওয়ার্ক)। অ্যালার্টিং।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> সমস্যা সনাক্ত, নির্ণয় এবং সমাধানের জন্য কার্যকর লগিং এবং মনিটরিংয়ের জন্য অ্যাপ্লিকেশন কীভাবে ইন্সট্রুমেন্ট করতে হয় তা বুঝুন।</p>
+                </div>
+            </section>
+
+            <section id="system-design" class="content-section scroll-mt-custom">
+                <h2>৫. সিস্টেম ডিজাইন (System Design)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">এটি বৃহৎ আকারের, ডিস্ট্রিবিউটেড সিস্টেম ডিজাইন সম্পর্কিত। এটি উপরের অনেকগুলো বিষয়কে একত্রিত করে।</p>
+                 <div class="content-subsection">
+                    <h3>পারফরম্যান্স বনাম স্কেলেবিলিটি (Performance vs Scalability)</h3>
+                    <p><strong>কী শিখবেন:</strong> পারফরম্যান্স (একটি একক অনুরোধ কত দ্রুত প্রসেস করা হয়) এবং স্কেলেবিলিটি (সিস্টেম ক্রমবর্ধমান লোড কত ভালোভাবে সামলাতে পারে) এর মধ্যে পার্থক্য। Horizontal বনাম Vertical স্কেলিং।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এই ধারণাগুলো এবং একটি বা উভয়ের জন্য ডিজাইন করার সাথে জড়িত ট্রেড-অফগুলো বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>লেটেন্সি বনাম থ্রুপুট (Latency vs Throughput)</h3>
+                    <p><strong>কী শিখবেন:</strong> লেটেন্সি (বিলম্ব) এবং থ্রুপুট (প্রসেসিংয়ের হার)। এগুলো কীভাবে সম্পর্কিত এবং কীভাবে তাদের জন্য অপটিমাইজ করতে হয়।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এই মূল পারফরম্যান্স মেট্রিকগুলো এবং বিভিন্ন ডিজাইন পছন্দ কীভাবে তাদের প্রভাবিত করে তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>প্রাপ্যতা বনাম কনসিস্টেন্সি (Availability vs Consistency)</h3>
+                    <p class="text-xs text-slate-400 mb-1 italic">(CAP থিওরেমের সাথে সম্পর্কিত)</p>
+                    <p><strong>কী শিখবেন:</strong> উচ্চ প্রাপ্যতা কৌশল (রিডান্ডেন্সি, ফেইলওভার)। বিভিন্ন স্তরের কনসিস্টেন্সি (স্ট্রং, ইভেন্টুয়াল)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ট্রেড-অফগুলো বুঝুন, বিশেষ করে ডিস্ট্রিবিউটেড সিস্টেমে, এবং নির্দিষ্ট প্রাপ্যতা এবং কনসিস্টেন্সি প্রয়োজনীয়তা পূরণ করে এমন সিস্টেম কীভাবে ডিজাইন করতে হয়।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>নির্ভরযোগ্যতা প্যাটার্ন (Reliability Patterns)</h3>
+                    <p><strong>কী শিখবেন:</strong> Circuit Breaker, Retry, Timeout, Bulkhead, Rate Limiting এর মতো প্যাটার্ন।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এই প্যাটার্নগুলো কীভাবে আরও স্থিতিস্থাপক এবং ফল্ট-টলারেন্ট সিস্টেম তৈরি করতে সহায়তা করে তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>লোড ব্যালান্সার (Load Balancer)</h3>
+                    <p><strong>কী শিখবেন:</strong> বিভিন্ন লোড ব্যালান্সিং অ্যালগরিদম (Round Robin, Least Connections, ইত্যাদি)। Layer 4 বনাম Layer 7 লোড ব্যালান্সার।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> লোড ব্যালান্সার কীভাবে ট্র্যাফিক বিতরণ করে, প্রাপ্যতা উন্নত করে এবং স্কেলেবিলিটি সক্ষম করে তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ক্যাশিং ও সিডিএন (Caching & CDN)</h3>
+                    <p><strong>কী শিখবেন:</strong> বিভিন্ন ক্যাশিং কৌশল (cache-aside, read-through, write-through, write-back)। ইন-মেমরি ক্যাশে (যেমন, <span class="pill">Redis</span>, <span class="pill">Memcached</span>)। স্ট্যাটিক অ্যাসেট ক্যাশিং এবং গ্লোবাল ডিস্ট্রিবিউশনের জন্য Content Delivery Networks (CDNs)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ক্যাশিং কীভাবে উল্লেখযোগ্যভাবে পারফরম্যান্স উন্নত করতে এবং ব্যাকএন্ড পরিষেবাগুলোতে লোড কমাতে পারে তা বুঝুন। কখন এবং কী ক্যাশে করতে হবে তা জানুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>কমিউনিকেশন ও মেসেজিং (Communication & Messaging)</h3>
+                    <p><strong>কী শিখবেন:</strong> সিঙ্ক্রোনাস (যেমন, REST, gRPC) বনাম অ্যাসিঙ্ক্রোনাস কমিউনিকেশন (যেমন, মেসেজ কিউ যেমন <span class="pill">Kafka</span>, <span class="pill">RabbitMQ</span>, <span class="pill">SQS</span>)। প্রতিটির ব্যবহারের ক্ষেত্র। আইডেম্পোটেন্সি।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বিভিন্ন কমিউনিকেশন প্যাটার্ন এবং পরিষেবাগুলো ডিকাপল করা এবং স্থিতিস্থাপকতা উন্নত করার জন্য সঠিকটি কীভাবে বেছে নিতে হয় তা বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>মাইক্রোসার্ভিস আর্কিটেকচার (Microservice Architecture)</h3>
+                    <p><strong>কী শিখবেন:</strong> মাইক্রোসার্ভিসের নীতিমালা। সুবিধা (স্বাধীন ডেপ্লয়মেন্ট, স্কেলেবিলিটি, প্রযুক্তি বৈচিত্র্য) এবং চ্যালেঞ্জ (জটিলতা, ডিস্ট্রিবিউটেড ট্রানজ্যাকশন, সার্ভিস ডিসকভারি, ইন্টার-সার্ভিস কমিউনিকেশন)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> মাইক্রোসার্ভিস বনাম মনোলিথের ট্রেড-অফ এবং মাইক্রোসার্ভিস-ভিত্তিক সিস্টেম তৈরির জন্য সাধারণ প্যাটার্নগুলো বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ক্লাউড-নেটিভ প্রযুক্তি (Cloud-Native Technologies)</h3>
+                    <p><strong>কী শিখবেন:</strong> ক্লাউড পরিবেশে অ্যাপ্লিকেশন তৈরি এবং চালানোর জন্য ডিজাইন করা প্রযুক্তি এবং অনুশীলন (যেমন, কন্টেইনার, অর্কেস্ট্রেটর, সার্ভারলেস, <span class="pill">Istio</span> এর মতো সার্ভিস মেশ)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ক্লাউড-নেটিভ আর্কিটেকচারের নীতিমালা (যেমন, The Twelve-Factor App) বুঝুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>ক্লাউড ডিজাইন প্যাটার্ন (Cloud Design Patterns)</h3>
+                    <p><strong>কী শিখবেন:</strong> ক্লাউড প্ল্যাটফর্মে অ্যাপ্লিকেশন ডিজাইনের জন্য নির্দিষ্ট প্যাটার্ন (যেমন, ক্লাউড ভেন্ডরদের দ্বারা প্রদত্ত স্কেলেবিলিটি, স্থিতিস্থাপকতা, খরচ অপটিমাইজেশনের জন্য প্যাটার্ন)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ক্লাউড সক্ষমতা কার্যকরভাবে ব্যবহার করার জন্য সাধারণ প্যাটার্নগুলোর সাথে পরিচিত হন।</p>
+                </div>
+            </section>
+
+            <section id="interview-preparation" class="content-section scroll-mt-custom">
+                <h2>৬. ইন্টারভিউ প্রস্তুতি (Interview Preparation)</h2>
+                <p class="text-slate-500 mb-6 text-sm md:text-base">এটি আপনার জ্ঞান এবং সমস্যা সমাধানের দক্ষতা প্রদর্শনের বিষয়ে।</p>
+                <div class="content-subsection">
+                    <h3>ডেটা স্ট্রাকচার ও অ্যালগরিদম (Data Structures & Algorithms)</h3>
+                    <p><strong>কতটুকু/গভীরতা:</strong> ক্রমাগত অনুশীলন। মাঝারি থেকে কঠিন সমস্যা দক্ষতার সাথে সমাধান করতে, আপনার চিন্তাভাবনা প্রক্রিয়া ব্যাখ্যা করতে এবং জটিলতা বিশ্লেষণ করতে সক্ষম হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>LeetCode এ কমপক্ষে ৫০০টি সমস্যা সমাধান করুন</h3>
+                    <p><strong>কতটুকু/গভীরতা:</strong> এটি একটি সুনির্দিষ্ট লক্ষ্য। কেবল সমাধান মুখস্থ না করে সমস্যাগুলোর পেছনের প্যাটার্ন বোঝার উপর ফোকাস করুন। বিভিন্ন বিষয় (অ্যারে, স্ট্রিং, ট্রি, গ্রাফ, ডিপি, ইত্যাদি) কভার করুন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>সিস্টেম ডিজাইন কেস স্টাডি (System design case studies)</h3>
+                    <p><strong>কী শিখবেন:</strong> সাধারণ সিস্টেম ডিজাইন ইন্টারভিউ প্রশ্ন (যেমন, টুইটার, উবার, নেটফ্লিক্স, একটি ইউআরএল শর্টেনার ডিজাইন করুন) অনুশীলন করুন। এই সমস্যাগুলোর কাছে যাওয়ার জন্য একটি কাঠামো শিখুন (রিকোয়ারমেন্ট স্পষ্ট করুন, স্কেল অনুমান করুন, কম্পোনেন্ট ডিজাইন করুন, বাধা সনাক্ত করুন, ট্রেড-অফ আলোচনা করুন)।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> বিভিন্ন পদ্ধতি, ট্রেড-অফ আলোচনা করতে এবং আপনার ডিজাইন পছন্দগুলো স্পষ্টভাবে প্রকাশ করতে সক্ষম হন।</p>
+                </div>
+                <div class="content-subsection">
+                    <h3>সাধারণ ডেটাবেস সমস্যা ও সমাধান (Common database problems & solutions)</h3>
+                    <p><strong>কী শিখবেন:</strong> ইন্টারভিউ প্রশ্নগুলোতে প্রায়শই ডেটাবেস ডিজাইন, কোয়েরি অপটিমাইজেশন এবং ট্রানজ্যাকশনাল আচরণ বোঝা জড়িত থাকে।</p>
+                    <p><strong>কতটুকু/গভীরতা:</strong> স্কিমা ডিজাইন, SQL কোয়েরি লেখা এবং ইনডেক্সিং ও ট্রানজ্যাকশনের মতো ধারণা ব্যাখ্যা করার জন্য প্রস্তুত থাকুন।</p>
+                </div>
+            </section>
+
+            <footer class="text-center mt-10 md:mt-16 py-6 border-t border-slate-300">
+                <p class="text-slate-500 text-xs md:text-sm">শেখার জন্য শুভকামনা! এই রোডম্যাপটি একটি শক্তিশালী ব্যাকএন্ড ইঞ্জিনিয়ারিং ভিত্তি তৈরির নির্দেশিকা।</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('#sidebarNav a');
+
+            // Function to update active link
+            function updateActiveLink() {
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    // Check if section is in viewport (considering a 150px offset from top for better accuracy)
+                    if (pageYOffset >= sectionTop - sectionHeight / 3 && pageYOffset < sectionTop + sectionHeight - sectionHeight / 3) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Smooth scroll for sidebar links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // For mobile, if sidebar is part of main flow and not fixed,
+                    // you might want to close it or handle differently.
+                    // For this design (fixed sidebar on md+), direct scroll is fine.
+                });
+            });
+
+            // Listen for scroll events to update active link
+            window.addEventListener('scroll', updateActiveLink);
+
+            // Initial check in case the page is loaded with a hash or scrolled
+            updateActiveLink();
+        });
+    </script>
+</body>
+              </html>
